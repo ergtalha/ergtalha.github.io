@@ -28,6 +28,7 @@
         .container {
             max-width: 800px;
             width: 100%;
+            padding-bottom: 120px;
         }
         
         h1 {
@@ -69,7 +70,7 @@
         
         .contact {
             font-size: 1.3rem;
-            margin: 15px 0 80px 0; /* BURASI DEĞİŞTİ: 40px → 80px */
+            margin: 15px 0 20px 0;
             padding: 15px 25px;
             background: rgba(244, 123, 32, 0.1);
             border-radius: 8px;
@@ -84,6 +85,29 @@
         
         .contact a:hover {
             text-decoration: underline;
+        }
+        
+        /* Instagram Butonu - Logo olmadan */
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            background: linear-gradient(45deg, #405DE6, #833AB4, #E1306C);
+            color: white;
+            text-decoration: none;
+            font-size: 1.3rem;
+            font-weight: 600;
+            padding: 16px 35px;
+            border-radius: 50px;
+            margin: 40px 0 30px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
         }
         
         .footer {
@@ -118,10 +142,16 @@
             .contact { 
                 font-size: 1.1rem; 
                 padding: 12px 20px; 
-                margin: 15px 0 60px 0; /* Mobilde de boşluk */
+                margin: 15px 0 20px 0;
+            }
+            .instagram-btn {
+                font-size: 1.1rem;
+                padding: 14px 30px;
+                margin: 35px 0 25px 0;
             }
             .copyright { font-size: 1rem; }
             .footer { bottom: 25px; }
+            .container { padding-bottom: 100px; }
         }
         
         @media (max-width: 480px) {
@@ -132,11 +162,17 @@
             .contact { 
                 font-size: 0.95rem; 
                 padding: 10px 15px; 
-                margin: 15px 0 50px 0; /* Mobilde de boşluk */
+                margin: 15px 0 15px 0;
+            }
+            .instagram-btn {
+                font-size: 1rem;
+                padding: 12px 25px;
+                margin: 30px 0 20px 0;
             }
             .copyright { font-size: 0.9rem; }
             .designer { font-size: 0.65rem; }
             .footer { bottom: 20px; }
+            .container { padding-bottom: 90px; }
         }
     </style>
 </head>
@@ -156,6 +192,11 @@
         <div class="contact">
             📧 İletişim: <a href="mailto:bursaergoterapist@gmail.com">bursaergoterapist@gmail.com</a>
         </div>
+        
+        <!-- Instagram Butonu - Logosuz -->
+        <a href="https://www.instagram.com/bursaergoterapimerkezi" target="_blank" class="instagram-btn">
+            Bizi Instagram'da takip edin
+        </a>
     </div>
     
     <div class="footer">
