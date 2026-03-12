@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bursa Pediatrik Ergoterapi | Çocuk Ergoterapi Merkezi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --yellow-base: #FFF9C4;       /* TABAN: Pastel Sarı (çocuk dostu) */
+            --yellow-primary: #FFEB3B;    /* ANA: Canlı Sarı (enerji) */
+            --yellow-dark: #FBC02D;       /* KOYU: Derin Sarı (vurgu) */
+            --blue-accent: #4FC3F7;       /* MAVİ AKSAN: Çocuk mavisi */
+            --pink-accent: #F48FB1;       /* PEMBE AKSAN: Sevgi, şefkat */
+            --green-accent: #81C784;      /* YEŞİL AKSAN: Büyüme, gelişim */
+            --purple-accent: #BA68C8;     /* MOR AKSAN: Yeni eklenen hizmet için */
+            --orange-accent: #FF9800;     /* TURUNCU: Yeni eklenen hizmet için */
+            --gray-dark: #424242;
+            --gray-light: #F5F5F5;
+            --white: #FFFFFF;
+            --shadow: 0 10px 30px rgba(0,0,0,0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--yellow-base);
+            color: var(--gray-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 1. HEADER - YENİ DÜZEN */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 3px solid var(--yellow-primary);
+            box-shadow: 0 5px 20px rgba(251, 192, 45, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            height: 80px;
+        }
+        
+        /* SOL: LOGO (EN SOLDA) */
+        .logo-container {
+            flex: 1;
+        }
+        
+        .logo-placeholder {
+            width: 220px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--blue-accent));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: var(--shadow);
+            font-family: 'Poppins', sans-serif;
+            cursor: pointer;
+        }
+        
+        /* ORTA: NAV MENÜ */
+        .nav-menu {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-menu ul {
+            display: flex;
+            list-style: none;
+            gap: 50px;
+        }
+        
+        .nav-menu ul li a {
+            text-decoration: none;
+            color: var(--gray-dark);
+            font-weight: 500;
+            font-size: 1.1rem;
+            padding: 8px 0;
+            position: relative;
+            transition: var(--transition);
+        }
+        
+        .nav-menu ul li a:hover {
+            color: var(--blue-accent);
+        }
+        
+        .nav-menu ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--yellow-dark);
+            transition: width 0.3s;
+        }
+        
+        .nav-menu ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* SAĞ: RANDEVU BUTONU (EN SAĞDA) */
+        .header-actions {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+        
+        .appointment-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--blue-accent), #29B6F6);
+            color: var(--white);
+            padding: 16px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(79, 195, 247, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            white-space: nowrap;
+        }
+        
+        .appointment-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .appointment-btn:hover::before {
+            left: 100%;
+        }
+        
+        .appointment-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(79, 195, 247, 0.4);
+        }
+        
+        /* 2. HERO - ÇOCUK ODAKLI */
+        .hero-slider {
+            height: 90vh;
+            position: relative;
+            margin-top: 80px;
+            border-radius: 0 0 40px 40px;
+            overflow: hidden;
+        }
+        
+        .slider-container {
+            width: 300%;
+            height: 100%;
+            display: flex;
+            transition: var(--transition);
+            animation: slide 18s infinite;
+        }
+        
+        .slide {
+            width: 100vw;
+            height: 100%;
+            position: relative;
+        }
+        
+        .slide-1 {
+            background: linear-gradient(rgba(79, 195, 247, 0.85), rgba(79, 195, 247, 0.9)),
+                        url('https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide-2 {
+            background: linear-gradient(rgba(255, 235, 59, 0.85), rgba(255, 235, 59, 0.9)),
+                        url('https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide-3 {
+            background: linear-gradient(rgba(244, 143, 177, 0.85), rgba(244, 143, 177, 0.9)),
+                        url('https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: var(--white);
+            width: 90%;
+            max-width: 800px;
+        }
+        
+        .slide-content h1 {
+            font-size: 3.8rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .slide-content p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+        
+        /* 3. PEDİATRİK HİZMETLER - 5 HİZMET OLDU */
+        .services-section {
+            padding: 100px 0;
+            background: var(--white);
+            border-radius: 40px;
+            margin: -40px 20px 0;
+            position: relative;
+            z-index: 2;
+            box-shadow: var(--shadow);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 3rem;
+            color: var(--gray-dark);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 5px;
+            background: linear-gradient(90deg, var(--blue-accent), var(--pink-accent));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            border: 3px solid transparent;
+        }
+        
+        .service-1 { border-color: var(--blue-accent); }
+        .service-2 { border-color: var(--pink-accent); }
+        .service-3 { border-color: var(--green-accent); }
+        .service-4 { border-color: var(--purple-accent); }
+        .service-5 { border-color: var(--orange-accent); }
+        
+        .service-card:hover {
+            transform: translateY(-20px) scale(1.03);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 30px;
+            color: var(--white);
+            font-size: 40px;
+            transition: var(--transition);
+        }
+        
+        .service-1 .service-icon { 
+            background: linear-gradient(135deg, var(--blue-accent), #29B6F6);
+            box-shadow: 0 10px 20px rgba(79, 195, 247, 0.3);
+        }
+        
+        .service-2 .service-icon { 
+            background: linear-gradient(135deg, var(--pink-accent), #F06292);
+            box-shadow: 0 10px 20px rgba(244, 143, 177, 0.3);
+        }
+        
+        .service-3 .service-icon { 
+            background: linear-gradient(135deg, var(--green-accent), #66BB6A);
+            box-shadow: 0 10px 20px rgba(129, 199, 132, 0.3);
+        }
+        
+        .service-4 .service-icon { 
+            background: linear-gradient(135deg, var(--purple-accent), #AB47BC);
+            box-shadow: 0 10px 20px rgba(186, 104, 200, 0.3);
+        }
+        
+        .service-5 .service-icon { 
+            background: linear-gradient(135deg, var(--orange-accent), #FFA726);
+            box-shadow: 0 10px 20px rgba(255, 152, 0, 0.3);
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotateY(180deg) scale(1.1);
+        }
+        
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--gray-dark);
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-top: 25px;
+        }
+        
+        .service-features li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--yellow-dark);
+            font-weight: bold;
+        }
+        
+        /* 4. ÇOCUK GALERİSİ - İLK KODDAKİ GİBİ KAYAN FOTOĞRAFLAR */
+        .kids-gallery {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--yellow-base) 0%, #FFFDE7 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .floating-element {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--blue-accent);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            background: var(--blue-accent);
+            animation-delay: 0s;
+        }
+        
+        .floating-element:nth-child(2) {
+            top: 40%;
+            right: 15%;
+            background: var(--pink-accent);
+            animation-delay: 2s;
+        }
+        
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 20%;
+            background: var(--green-accent);
+            animation-delay: 4s;
+        }
+        
+        .gallery-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-top: 50px;
+        }
+        
+        .gallery-track {
+            display: flex;
+            gap: 25px;
+            animation: scroll 40s linear infinite;
+            width: calc(300px * 10);
+        }
+        
+        .gallery-item {
+            width: 300px;
+            height: 400px;
+            border-radius: 25px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: var(--white);
+            padding: 30px 20px 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        /* 5. NEDEN BİZ? */
+        .why-us {
+            padding: 100px 0;
+            background: var(--white);
+        }
+        
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 40px 30px;
+            border-radius: 20px;
+            background: var(--gray-light);
+            transition: var(--transition);
+        }
+        
+        .why-card:hover {
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-dark));
+            transform: translateY(-10px);
+            color: var(--white);
+        }
+        
+        .why-card:hover .why-icon {
+            color: var(--white);
+        }
+        
+        .why-icon {
+            font-size: 50px;
+            color: var(--blue-accent);
+            margin-bottom: 20px;
+            transition: var(--transition);
+        }
+        
+        /* 6. HAKKIMIZDA SAYFASI STİLLERİ */
+        .about-section {
+            padding: 120px 0 80px;
+            background: var(--white);
+            margin-top: 80px;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--gray-dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .mission, .vision {
+            padding: 30px;
+            border-radius: 20px;
+            background: var(--gray-light);
+        }
+        
+        .mission {
+            border-left: 5px solid var(--blue-accent);
+        }
+        
+        .vision {
+            border-left: 5px solid var(--pink-accent);
+        }
+        
+        /* 7. BLOG SAYFASI STİLLERİ */
+        .blog-section {
+            padding: 120px 0 80px;
+            background: var(--white);
+            margin-top: 80px;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .blog-card {
+            background: var(--white);
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+        
+        .blog-content {
+            padding: 30px;
+        }
+        
+        .blog-date {
+            color: var(--blue-accent);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--gray-dark);
+        }
+        
+        .read-more {
+            color: var(--blue-accent);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        
+        /* 8. GOOGLE MAPS STİLLERİ */
+        .map-section {
+            padding: 80px 0;
+            background: var(--white);
+        }
+        
+        .map-container {
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 500px;
+            margin-top: 40px;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* 9. WHATSAPP FLOATING BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        
+        .whatsapp-float a {
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .whatsapp-float a:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* 10. BUTONLAR */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, var(--yellow-primary), var(--yellow-dark));
+            color: var(--gray-dark);
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 8px 25px rgba(255, 235, 59, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255, 255, 255, 0.4), 
+                transparent);
+            transition: left 0.7s;
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 235, 59, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 3px solid var(--white);
+            color: var(--white);
+            box-shadow: none;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        /* 11. İLETİŞİM */
+        .contact-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--blue-accent) 0%, #81D4FA 100%);
+            color: var(--white);
+            text-align: center;
+            border-radius: 40px;
+            margin: 0 20px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .contact-item i {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--yellow-primary);
+        }
+        
+        /* 12. FOOTER */
+        footer {
+            background: var(--gray-dark);
+            color: var(--white);
+            padding: 80px 0 40px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        .kid-font {
+            font-family: 'Comic Neue', cursive;
+        }
+        
+        /* 13. PAGE CONTENT (Gizli sayfalar için) */
+        .page-content {
+            display: none;
+        }
+        
+        .page-content.active {
+            display: block;
+        }
+        
+        .back-to-home {
+            margin-top: 40px;
+            text-align: center;
+        }
+        
+        /* 14. ANİMASYONLAR */
+        @keyframes slide {
+            0%, 28% { transform: translateX(0); }
+            33%, 61% { transform: translateX(-33.333%); }
+            66%, 94% { transform: translateX(-66.666%); }
+            100% { transform: translateX(0); }
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-300px * 5)); }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+        
+        /* 15. RESPONSIVE */
+        @media (max-width: 1200px) {
+            .nav-menu ul {
+                gap: 30px;
+            }
+            
+            .logo-placeholder {
+                width: 180px;
+            }
+            
+            .appointment-btn {
+                padding: 14px 30px;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .header-container {
+                flex-direction: row;
+                flex-wrap: wrap;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+            
+            .logo-container {
+                flex: 1;
+                min-width: 180px;
+            }
+            
+            .nav-menu {
+                order: 3;
+                flex: 100%;
+                margin-top: 15px;
+            }
+            
+            .nav-menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+            
+            .header-actions {
+                flex: 1;
+                justify-content: flex-end;
+            }
+            
+            .slide-content h1 {
+                font-size: 3rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .section-title h2 {
+                font-size: 2.5rem;
+            }
+            
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-menu ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+            
+            .appointment-btn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+            
+            .slide-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .slide-content p {
+                font-size: 1.1rem;
+            }
+            
+            .logo-placeholder {
+                width: 150px;
+                height: 50px;
+                font-size: 22px;
+            }
+            
+            .services-section {
+                margin: -20px 10px 0;
+                padding: 60px 20px;
+            }
+            
+            .hero-slider {
+                height: 70vh;
+            }
+            
+            .gallery-item {
+                width: 250px;
+                height: 350px;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo-container, .nav-menu, .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .slide-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 15px 30px;
+                font-size: 1rem;
+            }
+            
+            .service-card {
+                padding: 30px 20px;
+            }
+            
+            .logo-placeholder {
+                width: 200px;
+            }
+            
+            .gallery-item {
+                width: 200px;
+                height: 300px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .whatsapp-float a {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WHATSAPP FLOATING BUTTON -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/905551234567" target="_blank" title="WhatsApp'tan yazın">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- YENİ HEADER -->
+    <header>
+        <div class="container header-container">
+            <!-- SOL: LOGO (EN SOLDA) -->
+            <div class="logo-container">
+                <div onclick="showPage('home')" style="cursor:pointer;">
+                    <img src="logo1.png" alt="Bursa Ergoterapi Merkezi" style="height:60px; width:auto; display:block;">
+                </div>
+            </div>
+            
+            <!-- ORTA: NAV MENÜ -->
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#home" onclick="showPage('home')">Ana Sayfa</a></li>
+                    <li><a href="#about" onclick="showPage('about')">Hakkımızda</a></li>
+                    <li><a href="#services" onclick="showPage('home'); scrollToSection('services')">Hizmetlerimiz</a></li>
+                    <li><a href="#blog" onclick="showPage('blog')">Blog</a></li>
+                </ul>
+            </nav>
+            
+            <!-- SAĞ: RANDEVU BUTONU (EN SAĞDA) - WHATSAPP'A YÖNLENDİRME -->
+            <div class="header-actions">
+                <a href="https://wa.me/905551234567?text=Merhaba,%20randevu%20almak%20istiyorum." target="_blank" class="appointment-btn">
+                    <i class="fas fa-calendar-check"></i>
+                    Randevu Al
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ANA SAYFA -->
+    <div id="home-page" class="page-content active">
+        <!-- HERO SLIDER -->
+        <section class="hero-slider" id="home">
+            <div class="slider-container">
+                <!-- Slider 1 -->
+                <div class="slide slide-1">
+                    <div class="slide-content">
+                        <h1>Çocuklar İçin Özel Ergoterapi</h1>
+                        <p>Bursa'da pediatrik ergoterapinin öncüsü olarak hizmet veriyoruz</p>
+                        <a href="#services" class="btn" onclick="scrollToSection('services')">Hizmetlerimizi Görün <i class="fas fa-arrow-down"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Slider 2 -->
+                <div class="slide slide-2">
+                    <div class="slide-content">
+                        <h1>Duyu Bütünleme Terapisi</h1>
+                        <p>Çocukların duyusal gelişimini destekleyen özel programlar</p>
+                        <a href="#contact" class="btn btn-outline" onclick="scrollToSection('contact')">İletişime Geçin <i class="fas fa-comment-dots"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Slider 3 -->
+                <div class="slide slide-3">
+                    <div class="slide-content">
+                        <h1>Beslenme Terapisi</h1>
+                        <p>Yeme ve beslenme problemlerine yönelik uzman çözümler</p>
+                        <a href="#contact" class="btn" onclick="scrollToSection('contact')">Bilgi Alın <i class="fas fa-info-circle"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HİZMETLER - 5 HİZMET -->
+        <section class="services-section" id="services">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Pediatrik Hizmetlerimiz</h2>
+                    <p>Çocuklar için özel olarak tasarlanmış uzman hizmetler</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Hizmet 1 -->
+                    <div class="service-card service-1">
+                        <div class="service-icon">
+                            <i class="fas fa-child"></i>
+                        </div>
+                        <h3>Pediatrik Ergoterapi</h3>
+                        <p>Çocukların günlük yaşam becerilerini geliştirmeye yönelik bireyselleştirilmiş terapi programları.</p>
+                        
+                        <ul class="service-features">
+                            <li>Günlük yaşam aktiviteleri eğitimi</li>
+                            <li>İnce-kaba motor beceri gelişimi</li>
+                            <li>Okul öncesi hazırlık programları</li>
+                            <li>Öz bakım becerileri gelişimi</li>
+                            <li>Oyun becerileri ve sosyal gelişim</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Hizmet 2 -->
+                    <div class="service-card service-2">
+                        <div class="service-icon">
+                            <i class="fas fa-hand-sparkles"></i>
+                        </div>
+                        <h3>Duyu Bütünleme Terapisi</h3>
+                        <p>Çocukların duyusal bilgileri işleme ve uygun tepkiler verme becerilerini geliştiren terapi.</p>
+                        
+                        <ul class="service-features">
+                            <li>Duyusal değerlendirme ve analiz</li>
+                            <li>Duyusal diyet programları</li>
+                            <li>Duyusal oyun terapileri</li>
+                            <li>Duyusal entegrasyon aktiviteleri</li>
+                            <li>Aile eğitimi ve destek programları</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Hizmet 3 -->
+                    <div class="service-card service-3">
+                        <div class="service-icon">
+                            <i class="fas fa-apple-alt"></i>
+                        </div>
+                        <h3>Beslenme Terapisi</h3>
+                        <p>Çocuklarda yeme, çiğneme, yutma problemlerine yönelik özel terapi programları.</p>
+                        
+                        <ul class="service-features">
+                            <li>Oral-motor beceri değerlendirmesi</li>
+                            <li>Yeme ve çiğneme terapileri</li>
+                            <li>Gıda çeşitliliği programları</li>
+                            <li>Sensory feeding terapis</li>
+                            <li>Aile beslenme danışmanlığı</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- YENİ HİZMET 4: Aile Danışmanlığı -->
+                    <div class="service-card service-4">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3>Aile Danışmanlığı</h3>
+                        <p>Çocuk gelişimi sürecinde ailelere yönelik kapsamlı danışmanlık ve destek hizmetleri.</p>
+                        
+                        <ul class="service-features">
+                            <li>Aile içi iletişim danışmanlığı</li>
+                            <li>Davranış yönetimi stratejileri</li>
+                            <li>Ebeveyn eğitim programları</li>
+                            <li>Ev programları ve aktivite planlama</li>
+                            <li>Stres yönetimi ve duygusal destek</li>
+                        </ul>
+                    </div>
+                    
+                    <!-- YENİ HİZMET 5: Gelişimsel Değerlendirme -->
+                    <div class="service-card service-5">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Gelişimsel Değerlendirme</h3>
+                        <p>Çocukların gelişimsel düzeylerinin kapsamlı değerlendirilmesi ve takip programları.</p>
+                        
+                        <ul class="service-features">
+                            <li>Kapsamlı gelişimsel değerlendirme</li>
+                            <li>Standardize test uygulamaları</li>
+                            <li>Bireyselleştirilmiş gelişim planı</li>
+                            <li>Düzenli takip ve raporlama</li>
+                            <li>Okul ve kurum işbirliği</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÇOCUK GALERİSİ -->
+        <section class="kids-gallery">
+            <div class="floating-elements">
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+                <div class="floating-element"></div>
+            </div>
+            
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="color: var(--gray-dark);">Merkezimizden Kareler</h2>
+                    <p style="color: var(--gray-dark);">Terapi sürecimizden mutlu anlar</p>
+                </div>
+            </div>
+            
+            <div class="gallery-container">
+                <div class="gallery-track">
+                    <!-- Gallery items will be duplicated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- NEDEN BİZ? -->
+        <section class="why-us">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Neden X Ergoterapi Merkezi?</h2>
+                </div>
+                
+                <div class="why-grid">
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-home"></i></div>
+                        <h3>Çocuk Dostu Ortam</h3>
+                        <p>Çocukların kendilerini güvende hissedecekleri özel tasarım</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-heart"></i></div>
+                        <h3>Bireysel Yaklaşım</h3>
+                        <p>Her çocuk için özel olarak hazırlanmış terapi programları</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                        <h3>Aile Desteği</h3>
+                        <p>Terapi sürecinde ailelere kapsamlı rehberlik ve destek</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon"><i class="fas fa-star"></i></div>
+                        <h3>Kaliteli Hizmet</h3>
+                        <p>En son tedavi yöntemleri ve modern ekipmanlar</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GOOGLE MAPS -->
+        <section class="map-section" id="map">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Konumumuz</h2>
+                    <p>Bursa Nilüfer'de merkezi konumdayız</p>
+                </div>
+                
+                <div class="map-container">
+                    <!-- Google Maps iframe -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3048.1590563471757!2d28.886659315411632!3d40.20398897939216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15d9483f6d57%3A0x7c2f1d5b9d0e6b0a!2sNil%C3%BCfer%2C%20Bursa!5e0!3m2!1str!2str!4v1629996543210!5m2!1str!2str" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- İLETİŞİM -->
+        <section class="contact-section" id="contact">
+            <div class="container">
+                <div class="section-title">
+                    <h2 style="color: white;">İletişime Geçin</h2>
+                    <p style="opacity: 0.9;">Randevu ve detaylı bilgi için bize ulaşın</p>
+                </div>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Konumumuz</h3>
+                        <p>Nilüfer, Bursa<br>Çocuk Gelişim Merkezi</p>
+                        <a href="#map" onclick="scrollToSection('map')" style="color: var(--yellow-primary); text-decoration: none; display: inline-block; margin-top: 10px;">
+                            Haritada Gör <i class="fas fa-map-marked-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <h3>Telefon</h3>
+                        <p>0 (224) 123 45 67<br>Hafta içi 09:00 - 18:00</p>
+                        <a href="tel:+902241234567" style="color: var(--yellow-primary); text-decoration: none; display: inline-block; margin-top: 10px;">
+                            Hemen Ara <i class="fas fa-phone-alt"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <h3>E-posta</h3>
+                        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f1989f979eb1899483969e859483908198df929e9c">[email&#160;protected]</a><br>24 saat içinde dönüş</p>
+                        <a href="/cdn-cgi/l/email-protection#cea7a0a8a18eb6abbca9a1baabbcafbea7e0ada1a3" style="color: var(--yellow-primary); text-decoration: none; display: inline-block; margin-top: 10px;">
+                            E-posta Gönder <i class="fas fa-paper-plane"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <a href="https://wa.me/905551234567?text=Merhaba,%20bilgi%20almak%20istiyorum." target="_blank" class="btn" style="margin-top: 50px; background: white; color: var(--blue-accent);">
+                    <i class="fab fa-whatsapp"></i> WhatsApp'tan Yazın
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- HAKKIMIZDA SAYFASI -->
+    <div id="about-page" class="page-content">
+        <section class="about-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Hakkımızda</h2>
+                    <p>X Ergoterapi Merkezi olarak hikayemiz</p>
+                </div>
+                
+                <div class="about-content">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ergoterapi Merkezi">
+                    </div>
+                    
+                    <div class="about-text">
+                        <h2>Bursa'nın Pediatrik Ergoterapi Öncüsü</h2>
+                        <p>2015 yılında Bursa'da kurulan X Ergoterapi Merkezi, çocukların gelişimsel ihtiyaçlarına odaklanan bir pediatrik ergoterapi merkezi olarak hizmet vermektedir.</p>
+                        <p>Uzman kadromuz, çocukların günlük yaşam becerilerini geliştirmek, duyusal bütünleme sağlamak ve ailelere rehberlik etmek için kapsamlı terapi programları sunmaktadır.</p>
+                        
+                        <div class="mission-vision">
+                            <div class="mission">
+                                <h3><i class="fas fa-bullseye"></i> Misyonumuz</h3>
+                                <p>Her çocuğun potansiyelini maksimum düzeyde gerçekleştirmesine yardımcı olmak, ailelere destek sağlamak ve toplumda farkındalık yaratmak.</p>
+                            </div>
+                            
+                            <div class="vision">
+                                <h3><i class="fas fa-eye"></i> Vizyonumuz</h3>
+                                <p>Türkiye'de pediatrik ergoterapi alanında referans merkezi olmak ve uluslararası standartlarda hizmet vermek.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-to-home">
+                    <a href="#home" class="btn" onclick="showPage('home')">
+                        <i class="fas fa-home"></i> Ana Sayfaya Dön
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BLOG SAYFASI -->
+    <div id="blog-page" class="page-content">
+        <section class="blog-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Blog</h2>
+                    <p>Pediatrik ergoterapi hakkında güncel bilgiler</p>
+                </div>
+                
+                <div class="blog-grid">
+                    <!-- Blog 1 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Duyu Bütünleme">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> 15 Mart 2024
+                            </div>
+                            <h3>Duyu Bütünleme Terapisi Nedir?</h3>
+                            <p>Çocuklarda duyusal işleme bozuklukları ve duyu bütünleme terapisi hakkında detaylı bilgiler.</p>
+                            <a href="#" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 2 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Çocuk Gelişimi">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> 28 Şubat 2024
+                            </div>
+                            <h3>Çocuklarda İnce Motor Beceri Gelişimi</h3>
+                            <p>İnce motor becerilerin gelişimi ve günlük yaşamda önemi hakkında pratik bilgiler.</p>
+                            <a href="#" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 3 -->
+                    <div class="blog-card">
+                        <div class="blog-image">
+                            <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Beslenme Terapisi">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-date">
+                                <i class="far fa-calendar"></i> 10 Şubat 2024
+                            </div>
+                            <h3>Çocuklarda Yeme Problemleri ve Çözümleri</h3>
+                            <p>Pediatrik beslenme problemleri ve ergoterapi yaklaşımları hakkında bilgilendirme.</p>
+                            <a href="#" class="read-more">Devamını Oku <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="back-to-home">
+                    <a href="#home" class="btn" onclick="showPage('home')">
+                        <i class="fas fa-home"></i> Ana Sayfaya Dön
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                        <div class="logo-container" style="justify-content: flex-start; margin-bottom: 30px;">
+                        <div onclick="showPage('home')" style="cursor:pointer;">
+                            <img src="logo1.png" alt="Bursa Ergoterapi Merkezi" style="height:55px; width:auto; display:block; filter: brightness(0) invert(1);">
+                        </div>
+                    </div>
+                    <p style="opacity: 0.8; margin-bottom: 20px;">Bursa'da pediatrik ergoterapi hizmetleri sunan özel merkez.</p>
+                    
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="https://instagram.com/xergoterapi" target="_blank" style="color: var(--yellow-primary); font-size: 24px;"><i class="fab fa-instagram"></i></a>
+                        <a href="https://facebook.com/xergoterapimerkezi" target="_blank" style="color: var(--yellow-primary); font-size: 24px;"><i class="fab fa-facebook"></i></a>
+                        <a href="https://wa.me/905551234567" target="_blank" style="color: var(--yellow-primary); font-size: 24px;"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--yellow-primary); margin-bottom: 25px;">Hizmetlerimiz</h3>
+                    <ul style="list-style: none; opacity: 0.8;">
+                        <li style="margin-bottom: 10px;">Pediatrik Ergoterapi</li>
+                        <li style="margin-bottom: 10px;">Duyu Bütünleme Terapisi</li>
+                        <li style="margin-bottom: 10px;">Beslenme Terapisi</li>
+                        <li style="margin-bottom: 10px;">Aile Danışmanlığı</li>
+                        <li style="margin-bottom: 10px;">Gelişimsel Değerlendirme</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--yellow-primary); margin-bottom: 25px;">Hızlı Erişim</h3>
+                    <ul style="list-style: none; opacity: 0.8;">
+                        <li style="margin-bottom: 10px;"><a href="#home" onclick="showPage('home')" style="color: #bbb; text-decoration: none;">Ana Sayfa</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#about" onclick="showPage('about')" style="color: #bbb; text-decoration: none;">Hakkımızda</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#services" onclick="showPage('home'); scrollToSection('services')" style="color: #bbb; text-decoration: none;">Hizmetlerimiz</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#blog" onclick="showPage('blog')" style="color: #bbb; text-decoration: none;">Blog</a></li>
+                        <li style="margin-bottom: 10px;"><a href="#contact" onclick="showPage('home'); scrollToSection('contact')" style="color: #bbb; text-decoration: none;">İletişim</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2026 X Ergoterapi Merkezi. Tüm hakları saklıdır.</p>
+                <p style="margin-top: 10px; opacity: 0.6;" class="kid-font">Çocuklarımızın mutluluğu bizim önceliğimizdir ❤️</p>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Dinamik galeri oluşturma
+        const galleryImages = [
+            'https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1515168833906-d2a3b82b5d70?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80',
+            'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80'
+        ];
+        
+        const galleryTrack = document.querySelector('.gallery-track');
+        
+        // 10 kopya oluştur (sonsuz kaydırma için)
+        for (let i = 0; i < 10; i++) {
+            galleryImages.forEach((img, index) => {
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                galleryItem.innerHTML = `
+                    <img src="${img}" alt="Pediatrik Ergoterapi ${index + 1}">
+                    <div class="gallery-overlay">
+                        <h4>Mutlu Çocuk ${index + 1}</h4>
+                        <p>Terapi sürecimizden bir kare</p>
+                    </div>
+                `;
+                galleryTrack.appendChild(galleryItem);
+            });
+        }
+        
+        // Gallery pause on hover
+        galleryTrack.addEventListener('mouseenter', () => {
+            galleryTrack.style.animationPlayState = 'paused';
+        });
+        
+        galleryTrack.addEventListener('mouseleave', () => {
+            galleryTrack.style.animationPlayState = 'running';
+        });
+        
+        // Slider kontrolü
+        const slider = document.querySelector('.slider-container');
+        let isPaused = false;
+        
+        slider.addEventListener('mouseenter', () => {
+            isPaused = true;
+            slider.style.animationPlayState = 'paused';
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            isPaused = false;
+            slider.style.animationPlayState = 'running';
+        });
+        
+        // Floating elements animasyonu
+        document.querySelectorAll('.floating-element').forEach((el, index) => {
+            el.style.animationDelay = `${index * 2}s`;
+        });
+        
+        // Sayfa geçiş fonksiyonu
+        function showPage(pageId) {
+            // Tüm sayfaları gizle
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // İstenen sayfayı göster
+            document.getElementById(`${pageId}-page`).classList.add('active');
+            
+            // Sayfanın başına git
+            window.scrollTo(0, 0);
+            
+            // Header'ı sabit tut
+            document.querySelector('header').style.position = 'fixed';
+        }
+        
+        // Sayfa içi bölüme kaydırma
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        // Sayfa yüklendiğinde hash kontrolü
+        window.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash === 'about' || hash === 'blog') {
+                showPage(hash);
+            }
+        });
+        
+        // WhatsApp numarasını değiştirmek için kolay fonksiyon
+        function updateWhatsAppNumber(newNumber) {
+            const whatsappLinks = document.querySelectorAll('a[href*="whatsapp"]');
+            whatsappLinks.forEach(link => {
+                link.href = link.href.replace(/90555\d{7}/, newNumber);
+            });
+        }
+        
+        // Telefon numarasını değiştirmek için
+        function updatePhoneNumber(newNumber) {
+            const phoneElements = document.querySelectorAll('a[href^="tel:"]');
+            phoneElements.forEach(el => {
+        
