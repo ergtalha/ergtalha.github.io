@@ -379,8 +379,16 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
 .btn-appointment-mobile:hover { transform:translateY(-2px); }
 
 /* Mobilde logo küçült */
+@media(max-width:992px) {
+    .logo img { height:44px; }
+    .logo-divider { height:38px; }
+    .logo-tv { height:32px; }
+    .logo { gap:12px; }
+}
+
 @media(max-width:480px) {
-    .logo img { height:40px; }
-    .logo-divider { height:34px; }
-    .logo-tv { height:30px; }
+    .logo img { height:36px; }
+    .logo-divider { height:30px; width:1.5px; }
+    .logo-tv { height:26px; }
+    .logo { gap:9px; }
 }
