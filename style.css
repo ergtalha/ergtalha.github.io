@@ -39,7 +39,10 @@ header {
     display:flex; align-items:center; justify-content:space-between;
     height:80px; gap:20px;
 }
+.logo { display:flex; align-items:center; gap:18px; }
 .logo img { height:60px; width:auto; }
+.logo-divider { width:2px; height:50px; background:#1B2A4A; border-radius:2px; flex-shrink:0; }
+.logo-tv { height:45px; width:auto; }
 
 /* NAV */
 nav ul { display:flex; gap:40px; }
@@ -374,3 +377,10 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
     box-shadow:0 5px 15px rgba(255,235,59,0.3);
 }
 .btn-appointment-mobile:hover { transform:translateY(-2px); }
+
+/* Mobilde logo küçült */
+@media(max-width:480px) {
+    .logo img { height:40px; }
+    .logo-divider { height:34px; }
+    .logo-tv { height:30px; }
+}
