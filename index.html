@@ -42,6 +42,100 @@
 </head>
 <body>
 
+<!-- AÇILIŞ BANNER -->
+<div id="announcement-overlay">
+    <div id="announcement-box">
+        <button id="announcement-close" aria-label="Kapat"><i class="fas fa-times"></i></button>
+        <div class="ann-icon"><i class="fas fa-seedling"></i></div>
+        <h2>Çok Yakında Açılıyoruz!</h2>
+        <p class="ann-sub">Bursa Nilüfer'de pediatrik ergoterapi merkezimiz çok yakında açılıyor.</p>
+        <p class="ann-sub" style="font-size:0.88rem;color:#999;margin-top:-10px;">Web sitemiz yapım aşamasında olup içeriklerimiz güncellenmektedir.</p>
+        <div class="ann-divider"></div>
+        <p class="ann-detail">Ön kayıt ve bilgi için bize ulaşın:</p>
+        <div class="ann-contacts">
+            <a href="https://wa.me/905389670616?text=Merhaba,%20bilgi%20almak%20istiyorum." target="_blank" rel="noopener" class="ann-btn ann-btn-wp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://instagram.com/bursaergoterapimerkezi" target="_blank" rel="noopener" class="ann-btn ann-btn-ig">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+        <p class="ann-skip" id="announcement-skip">Siteye devam et <i class="fas fa-arrow-right"></i></p>
+    </div>
+</div>
+
+<style>
+#announcement-overlay {
+    position:fixed; inset:0; z-index:9999;
+    background:rgba(10,20,40,0.82);
+    backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center;
+    padding:20px;
+    animation:fadeInOverlay 0.4s ease;
+}
+@keyframes fadeInOverlay { from{opacity:0} to{opacity:1} }
+#announcement-box {
+    background:#fff;
+    border-radius:28px;
+    padding:50px 45px 40px;
+    max-width:480px; width:100%;
+    text-align:center;
+    position:relative;
+    box-shadow:0 30px 80px rgba(0,0,0,0.3);
+    animation:slideUp 0.4s ease;
+}
+@keyframes slideUp { from{transform:translateY(30px);opacity:0} to{transform:translateY(0);opacity:1} }
+#announcement-close {
+    position:absolute; top:18px; right:20px;
+    background:#F5F5F5; border:none; cursor:pointer;
+    width:36px; height:36px; border-radius:50%;
+    font-size:16px; color:#424242;
+    display:flex; align-items:center; justify-content:center;
+    transition:all 0.3s ease;
+}
+#announcement-close:hover { background:#FFEB3B; }
+.ann-icon {
+    width:70px; height:70px; border-radius:20px; margin:0 auto 20px;
+    background:linear-gradient(135deg,#FFEB3B,#FBC02D);
+    display:flex; align-items:center; justify-content:center;
+    font-size:30px; color:#424242;
+    box-shadow:0 8px 20px rgba(255,235,59,0.35);
+}
+#announcement-box h2 { font-size:1.8rem; font-weight:700; color:#424242; margin-bottom:12px; }
+.ann-sub { color:#666; font-size:0.97rem; line-height:1.7; margin-bottom:20px; }
+.ann-divider { width:60px; height:3px; border-radius:3px; margin:0 auto 20px; background:linear-gradient(90deg,#4FC3F7,#F48FB1); }
+.ann-detail { font-size:0.88rem; color:#999; margin-bottom:18px; }
+.ann-contacts { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-bottom:22px; }
+.ann-btn { display:inline-flex; align-items:center; gap:8px; padding:12px 22px; border-radius:50px; font-weight:600; font-size:0.92rem; transition:all 0.3s ease; }
+.ann-btn-phone { background:linear-gradient(135deg,#4FC3F7,#29B6F6); color:#fff; box-shadow:0 5px 15px rgba(79,195,247,0.3); }
+.ann-btn-phone:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(79,195,247,0.4); }
+.ann-btn-wp { background:#25D366; color:#fff; box-shadow:0 5px 15px rgba(37,211,102,0.3); }
+.ann-btn-ig { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color:#fff; box-shadow:0 5px 15px rgba(220,39,67,0.3); }
+.ann-btn-ig:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(220,39,67,0.4); }
+.ann-btn-wp:hover { transform:translateY(-2px); box-shadow:0 10px 25px rgba(37,211,102,0.4); }
+.ann-skip { font-size:0.85rem; color:#bbb; cursor:pointer; transition:all 0.3s ease; display:inline-block; }
+.ann-skip:hover { color:#4FC3F7; }
+@keyframes fadeOutOverlay { to{opacity:0} }
+@media(max-width:480px) {
+    #announcement-box { padding:40px 25px 30px; }
+    #announcement-box h2 { font-size:1.5rem; }
+    .ann-contacts { flex-direction:column; align-items:center; }
+    .ann-btn { width:100%; justify-content:center; }
+}
+</style>
+
+<script>
+(function(){
+    function closeAnn(){
+        var el = document.getElementById("announcement-overlay");
+        if(el){ el.style.animation="fadeOutOverlay 0.3s ease forwards"; setTimeout(function(){el.remove();},300); }
+    }
+    document.getElementById("announcement-close").addEventListener("click", closeAnn);
+    document.getElementById("announcement-skip").addEventListener("click", closeAnn);
+    document.getElementById("announcement-overlay").addEventListener("click", function(e){ if(e.target===this) closeAnn(); });
+})();
+</script>
+
 <!-- HEADER -->
 <header>
     <div class="container header-inner">
