@@ -32,13 +32,13 @@ if (hamburger && nav) {
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
     const imgs = [
-        { src: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 1' },
-        { src: 'https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 2' },
-        { src: 'https://images.unsplash.com/photo-1541692641319-981cc79ee10a?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 3' },
-        { src: 'https://images.unsplash.com/photo-1527525443983-6e60c75fff46?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 4' },
-        { src: 'https://images.unsplash.com/photo-1515168833906-d2a3b82b5d70?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 5' },
-        { src: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 6' },
-        { src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=500&q=80', alt: 'Pediatrik Ergoterapi 7' }
+        { src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=500&q=80', alt: 'Çocuk Ergoterapi Seansı' },
+        { src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=500&q=80', alt: 'Motor Beceri Aktivitesi' },
+        { src: 'https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?auto=format&fit=crop&w=500&q=80', alt: 'Duyu Bütünleme Terapisi' },
+        { src: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=500&q=80', alt: 'Çocuk Gelişim Aktivitesi' },
+        { src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=500&q=80', alt: 'Terapi Merkezi' },
+        { src: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=500&q=80', alt: 'Çocuk Oyun Terapisi' },
+        { src: 'https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?auto=format&fit=crop&w=500&q=80', alt: 'İnce Motor Beceri Çalışması' }
     ];
 
     // 4 kopya - sonsuz döngü için
