@@ -134,3 +134,34 @@ if (document.readyState === 'loading') {
 } else {
     initServiceAccordion();
 }
+
+// ===== SLIDER MANUEL KONTROL =====
+(function(){
+    const track = document.querySelector('.slider-track');
+    if (!track) return;
+
+    let current = 0;
+    const total = 3;
+    let autoTimer;
+
+    const dots = document.querySelectorAll('.slider-dot');
+
+    function goTo(index) {
+        current = (index + total) % total;
+        track.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
+        track.style.animation = 'none';
+        track.style.transform = `translateX(-${current * 100}vw)`;
+        dots.forEach((d, i) => d.classList.toggle('active', i === current));
+    }
+
+    function startAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(() => goTo(current + 1), 6000);
+    }
+
+    document.querySelector('.slider-prev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+    document.querySelector('.slider-next')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+    dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startAuto(); }));
+
+    startAuto();
+})();
