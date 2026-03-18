@@ -328,8 +328,14 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
 
 @media(max-width:768px) {
     .hero-slider { height:70vh; }
-    .services-section { margin:-20px 10px 0; padding:60px 20px; }
-    .services-grid { grid-template-columns:1fr; }
+    .services-section { margin:-20px 10px 0; padding:50px 15px; }
+    /* Hizmet kartları 2 sütun */
+    .services-grid { grid-template-columns:1fr 1fr; gap:15px; }
+    .service-card { padding:22px 15px; border-radius:18px; border-width:2px; }
+    .service-icon { width:55px; height:55px; font-size:24px; border-radius:15px; margin-bottom:14px; }
+    .service-card h3 { font-size:1rem; margin-bottom:8px; }
+    .service-card p { font-size:0.82rem; margin-bottom:12px; }
+    .service-features li { font-size:0.8rem; padding:4px 0 4px 20px; }
     .gallery-item { width:250px; height:350px; }
     .map-container { height:350px; }
     .contact-section { margin:0 10px; border-radius:25px; }
@@ -345,12 +351,19 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
 }
 
 @media(max-width:480px) {
-    .container { padding:0 15px; }
+    .container { padding:0 12px; }
     .hero-slider { height:65vh; border-radius:0 0 25px 25px; }
     .slide-content h1 { font-size:1.5rem; }
     .btn { padding:14px 24px; font-size:0.95rem; }
-    .services-section { margin:-15px 8px 0; border-radius:25px; }
-    /* Neden biz - küçük ekranda da 2 sütun */
+    .services-section { margin:-15px 8px 0; border-radius:25px; padding:40px 12px; }
+    /* Hizmet kartları 2 sütun küçük ekran */
+    .services-grid { grid-template-columns:1fr 1fr; gap:10px; }
+    .service-card { padding:16px 10px; border-radius:15px; }
+    .service-icon { width:45px; height:45px; font-size:20px; border-radius:12px; margin-bottom:10px; }
+    .service-card h3 { font-size:0.88rem; margin-bottom:6px; }
+    .service-card p { font-size:0.78rem; margin-bottom:8px; }
+    .service-features li { font-size:0.75rem; padding:3px 0 3px 16px; }
+    /* Neden biz - 2 sütun */
     .why-grid { grid-template-columns:1fr 1fr; gap:12px; }
     .why-card { padding:20px 12px; border-radius:15px; }
     .why-icon { font-size:30px; margin-bottom:10px; }
