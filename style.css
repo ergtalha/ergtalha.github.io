@@ -412,3 +412,61 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
 .about-list { margin:8px 0 16px 20px; }
 .about-list li { padding:5px 0 5px 25px; position:relative; color:#555; font-size:1rem; }
 .about-list li::before { content:'✓'; position:absolute; left:0; color:var(--yellow-dark); font-weight:700; }
+
+/* ===== MOBİL HİZMET ACCORDION ===== */
+@media(max-width:768px) {
+    /* Grid'i tek sütuna al, accordion için */
+    .services-grid { grid-template-columns:1fr; gap:12px; }
+
+    .service-card {
+        padding:0; border-radius:18px; border-width:2px;
+        overflow:hidden; cursor:pointer;
+    }
+
+    /* Başlık satırı - her zaman görünür */
+    .service-card-header {
+        display:flex; align-items:center; gap:14px;
+        padding:18px 20px;
+        background:var(--white);
+    }
+    .service-card-header .service-icon {
+        width:48px; height:48px; min-width:48px;
+        font-size:22px; border-radius:14px; margin:0;
+    }
+    .service-card-header h3 { font-size:1rem; margin:0; flex:1; }
+    .service-card-chevron {
+        font-size:14px; color:#aaa;
+        transition:transform 0.3s ease;
+        flex-shrink:0;
+    }
+    .service-card.open .service-card-chevron { transform:rotate(180deg); }
+
+    /* İçerik - gizli, açılınca görünür */
+    .service-card-body {
+        max-height:0; overflow:hidden;
+        transition:max-height 0.4s ease, padding 0.3s ease;
+        padding:0 20px;
+        background:var(--white);
+        border-top:0px solid #f0f0f0;
+    }
+    .service-card.open .service-card-body {
+        max-height:500px;
+        padding:0 20px 20px;
+        border-top:1px solid #f0f0f0;
+    }
+    .service-card-body p { font-size:0.88rem; color:#666; margin:14px 0 12px; }
+    .service-card-body .service-features li { font-size:0.85rem; padding:5px 0 5px 22px; }
+
+    /* Masaüstünde accordion header gizli, normal kart görünür */
+    .service-card-header { display:flex; }
+    .service-card > .service-icon,
+    .service-card > h3,
+    .service-card > p,
+    .service-card > .service-features { display:none !important; }
+}
+
+@media(min-width:769px) {
+    .service-card-header { display:none; }
+    .service-card-chevron { display:none; }
+    .service-card-body { max-height:none !important; padding:0 !important; border:none !important; background:transparent !important; overflow:visible !important; }
+}

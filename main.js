@@ -78,3 +78,61 @@ window.addEventListener('load', () => {
         }
     }
 });
+
+// ===== MOBİL HİZMET ACCORDION =====
+function initServiceAccordion() {
+    if (window.innerWidth > 768) return;
+
+    const cards = document.querySelectorAll('.service-card');
+    cards.forEach(card => {
+        // Mevcut içeriği al
+        const icon = card.querySelector('.service-icon');
+        const h3 = card.querySelector('h3');
+        const p = card.querySelector('p');
+        const ul = card.querySelector('.service-features');
+
+        if (!icon || !h3) return;
+
+        // Header oluştur
+        const header = document.createElement('div');
+        header.className = 'service-card-header';
+
+        const iconClone = icon.cloneNode(true);
+        const h3Clone = h3.cloneNode(true);
+        const chevron = document.createElement('i');
+        chevron.className = 'fas fa-chevron-down service-card-chevron';
+
+        header.appendChild(iconClone);
+        header.appendChild(h3Clone);
+        header.appendChild(chevron);
+
+        // Body oluştur
+        const body = document.createElement('div');
+        body.className = 'service-card-body';
+        if (p) body.appendChild(p.cloneNode(true));
+        if (ul) body.appendChild(ul.cloneNode(true));
+
+        // Orijinal içeriği gizle
+        [icon, h3, p, ul].forEach(el => { if (el) el.style.display = 'none'; });
+
+        // Kartın başına ekle
+        card.insertBefore(body, card.firstChild);
+        card.insertBefore(header, card.firstChild);
+
+        // Tıklama
+        header.addEventListener('click', () => {
+            const isOpen = card.classList.contains('open');
+            // Hepsini kapat
+            cards.forEach(c => c.classList.remove('open'));
+            // Bu kapalıysa aç
+            if (!isOpen) card.classList.add('open');
+        });
+    });
+}
+
+// Sayfa yüklenince çalıştır
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceAccordion);
+} else {
+    initServiceAccordion();
+}
