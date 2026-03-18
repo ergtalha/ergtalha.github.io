@@ -143,13 +143,11 @@ if (document.readyState === 'loading') {
     let current = 0;
     const total = 3;
     let autoTimer;
-
     const dots = document.querySelectorAll('.slider-dot');
 
     function goTo(index) {
         current = (index + total) % total;
         track.style.transition = 'transform 0.6s cubic-bezier(0.4,0,0.2,1)';
-        track.style.animation = 'none';
         track.style.transform = `translateX(-${current * 100}vw)`;
         dots.forEach((d, i) => d.classList.toggle('active', i === current));
     }
@@ -159,13 +157,34 @@ if (document.readyState === 'loading') {
         autoTimer = setInterval(() => goTo(current + 1), 6000);
     }
 
-    // Dokunmatik kaydırma
+    // Dokunmatik sürükleme - gerçek zamanlı hareket
     let touchStartX = 0;
-    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
-    track.addEventListener('touchend', e => {
-        const diff = touchStartX - e.changedTouches[0].clientX;
-        if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+    let touchDiff = 0;
+    let isDragging = false;
+
+    track.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+        touchDiff = 0;
+        isDragging = true;
+        track.style.transition = 'none';
+        clearInterval(autoTimer);
     }, {passive:true});
+
+    track.addEventListener('touchmove', e => {
+        if (!isDragging) return;
+        touchDiff = e.touches[0].clientX - touchStartX;
+        track.style.transform = `translateX(calc(-${current * 100}vw + ${touchDiff}px))`;
+    }, {passive:true});
+
+    track.addEventListener('touchend', () => {
+        isDragging = false;
+        if (Math.abs(touchDiff) > 60) {
+            goTo(touchDiff < 0 ? current + 1 : current - 1);
+        } else {
+            goTo(current); // geri döndür
+        }
+        startAuto();
+    });
 
     // Masaüstü ok butonları
     document.querySelector('.slider-prev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });

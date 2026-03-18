@@ -121,7 +121,7 @@ nav ul li a.active::after { width:100%; }
     margin-top:80px; position:relative;
     overflow:hidden; border-radius:0 0 40px 40px;
 }
-.slider-track { display:flex; height:100%; animation:slide 18s infinite; }
+.slider-track { display:flex; height:100%; transition:transform 0.6s cubic-bezier(0.4,0,0.2,1); }
 .slide { min-width:100vw; height:100%; display:flex; align-items:center; justify-content:center; text-align:center; }
 .slide-1 { background:linear-gradient(rgba(79,195,247,0.82),rgba(79,195,247,0.88)),url('https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; }
 .slide-2 { background:linear-gradient(rgba(255,235,59,0.82),rgba(255,235,59,0.88)),url('https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; }
