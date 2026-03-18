@@ -159,8 +159,18 @@ if (document.readyState === 'loading') {
         autoTimer = setInterval(() => goTo(current + 1), 6000);
     }
 
+    // Dokunmatik kaydırma
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+        const diff = touchStartX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 50) { goTo(diff > 0 ? current + 1 : current - 1); startAuto(); }
+    }, {passive:true});
+
+    // Masaüstü ok butonları
     document.querySelector('.slider-prev')?.addEventListener('click', () => { goTo(current - 1); startAuto(); });
     document.querySelector('.slider-next')?.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+
     dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startAuto(); }));
 
     startAuto();
