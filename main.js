@@ -85,25 +85,24 @@ function initServiceAccordion() {
 
     const cards = document.querySelectorAll('.service-card');
     cards.forEach(card => {
-        // Mevcut içeriği al
         const icon = card.querySelector('.service-icon');
-        const h3 = card.querySelector('h3');
+        const heading = card.querySelector('h3') || card.querySelector('h2');
         const p = card.querySelector('p');
         const ul = card.querySelector('.service-features');
+        const detailBtn = card.querySelector('.btn');
 
-        if (!icon || !h3) return;
+        if (!icon || !heading) return;
 
         // Header oluştur
         const header = document.createElement('div');
         header.className = 'service-card-header';
-
         const iconClone = icon.cloneNode(true);
-        const h3Clone = h3.cloneNode(true);
+        const headingClone = document.createElement('h3');
+        headingClone.textContent = heading.textContent;
         const chevron = document.createElement('i');
         chevron.className = 'fas fa-chevron-down service-card-chevron';
-
         header.appendChild(iconClone);
-        header.appendChild(h3Clone);
+        header.appendChild(headingClone);
         header.appendChild(chevron);
 
         // Body oluştur
@@ -111,9 +110,10 @@ function initServiceAccordion() {
         body.className = 'service-card-body';
         if (p) body.appendChild(p.cloneNode(true));
         if (ul) body.appendChild(ul.cloneNode(true));
+        if (detailBtn) body.appendChild(detailBtn.cloneNode(true));
 
         // Orijinal içeriği gizle
-        [icon, h3, p, ul].forEach(el => { if (el) el.style.display = 'none'; });
+        [icon, heading, p, ul, detailBtn].forEach(el => { if (el) el.style.display = 'none'; });
 
         // Kartın başına ekle
         card.insertBefore(body, card.firstChild);
@@ -122,9 +122,7 @@ function initServiceAccordion() {
         // Tıklama
         header.addEventListener('click', () => {
             const isOpen = card.classList.contains('open');
-            // Hepsini kapat
             cards.forEach(c => c.classList.remove('open'));
-            // Bu kapalıysa aç
             if (!isOpen) card.classList.add('open');
         });
     });
