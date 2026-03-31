@@ -22,12 +22,15 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-192.png">
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+    <!-- LCP preload - ilk slider arka planı -->
+    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=60">
+    <!-- Font preload -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome - sadece kullanılan ikonlar için woff2 preload -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="style.css">
     <script type="application/ld+json">
     {
@@ -163,7 +166,7 @@
                 <img src="logo1.png" alt="Bursa Ergoterapi Merkezi" width="180" height="55">
             </a>
             <div class="logo-divider"></div>
-            <img src="tv.png" alt="Ergoterapist Talha Vizirhan" class="logo-tv">
+            <img src="tv.png" alt="Ergoterapist Talha Vizirhan" class="logo-tv" width="100" height="45">
         </div>
         <nav id="main-nav" role="navigation" aria-label="Ana Menü">
             <ul>
@@ -391,7 +394,7 @@
     <div class="container">
         <div class="footer-content">
             <div>
-                <a href="/"><img src="logo1.png" alt="Bursa Ergoterapi Merkezi" class="footer-logo"></a>
+                <a href="/"><img src="logo1.png" alt="Bursa Ergoterapi Merkezi" class="footer-logo" width="180" height="55"></a>
                 <p style="opacity:0.75; margin-top:15px; font-size:0.9rem; line-height:1.8;">Bursa'da pediatrik ergoterapi hizmetleri sunan özel merkez.</p>
                 <div class="footer-social">
                     <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>

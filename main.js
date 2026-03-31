@@ -47,7 +47,7 @@ if (galleryTrack) {
             const div = document.createElement('div');
             div.className = 'gallery-item';
             div.innerHTML = `
-                <img src="${img.src}" alt="${img.alt}" loading="lazy">
+                <img src="${img.src}" alt="${img.alt}" loading="lazy" width="400" height="560">
                 <div class="gallery-overlay">
                     <h4>Terapi Merkezi</h4>
                     <p>Terapi sürecimizden bir kare</p>
