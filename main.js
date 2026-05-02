@@ -31,29 +31,16 @@ if (hamburger && nav) {
 // ===== GALERİ =====
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
-    const imgs = [
-        { src: 'https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=400&q=60', alt: 'Çocuk Ergoterapi Seansı' },
-        { src: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?auto=format&fit=crop&w=400&q=60', alt: 'Motor Beceri Aktivitesi' },
-        { src: 'https://images.unsplash.com/photo-1567653418876-5bb0e566e1c2?auto=format&fit=crop&w=400&q=60', alt: 'Duyu Bütünleme Terapisi' },
-        { src: 'https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=400&q=60', alt: 'Çocuk Gelişim Aktivitesi' },
-        { src: 'https://images.unsplash.com/photo-1587654780291-39c9404d746b?auto=format&fit=crop&w=400&q=60', alt: 'Terapi Merkezi' },
-        { src: 'https://images.unsplash.com/photo-1544776193-352d25ca82cd?auto=format&fit=crop&w=400&q=60', alt: 'Çocuk Oyun Terapisi' },
-        { src: 'https://images.unsplash.com/photo-1516627145497-ae4b46fa11d0?auto=format&fit=crop&w=400&q=60', alt: 'İnce Motor Beceri Çalışması' }
-    ];
+    // Fotoğraflar ileride yüklenecek - şu an boş şeffaf yer tutucular
+    const placeholderCount = 7;
 
     // 2 kopya - sonsuz döngü için
     for (let i = 0; i < 2; i++) {
-        imgs.forEach(img => {
+        for (let j = 0; j < placeholderCount; j++) {
             const div = document.createElement('div');
-            div.className = 'gallery-item';
-            div.innerHTML = `
-                <img src="${img.src}" alt="${img.alt}" loading="lazy" width="400" height="560">
-                <div class="gallery-overlay">
-                    <h4>Terapi Merkezi</h4>
-                    <p>Terapi sürecimizden bir kare</p>
-                </div>`;
+            div.className = 'gallery-item gallery-item-empty';
             galleryTrack.appendChild(div);
-        });
+        }
     }
 
     galleryTrack.addEventListener('mouseenter', () => galleryTrack.style.animationPlayState = 'paused');
