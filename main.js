@@ -31,7 +31,7 @@ if (hamburger && nav) {
 // ===== GALERİ =====
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
-    // Fotoğraflar ileride yüklenecek - şu an boş şeffaf yer tutucular
+    // Fotoğraflar ileride yüklenecek - şimdilik logo gösteriyor
     const placeholderCount = 7;
 
     // 2 kopya - sonsuz döngü için
@@ -39,6 +39,7 @@ if (galleryTrack) {
         for (let j = 0; j < placeholderCount; j++) {
             const div = document.createElement('div');
             div.className = 'gallery-item gallery-item-empty';
+            div.innerHTML = '<img src="logo1.png" alt="Bursa Ergoterapi Merkezi" loading="lazy">';
             galleryTrack.appendChild(div);
         }
     }
