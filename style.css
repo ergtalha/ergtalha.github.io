@@ -176,6 +176,9 @@ nav ul li a.active::after { width:100%; }
 .service-features li::before { content:'✓'; position:absolute; left:0; color:var(--yellow-dark); font-weight:700; }
 
 /* ===== GALERİ ===== */
+/* Fotoğraflar yüklenene kadar bölüm gizli — açmak için aşağıdaki satırı sil */
+.kids-gallery { display:none; }
+
 .kids-gallery {
     padding:100px 0;
     background:linear-gradient(135deg,var(--yellow-base),#FFFDE7);
