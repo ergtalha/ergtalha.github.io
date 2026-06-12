@@ -177,8 +177,9 @@ nav ul li a.active::after { width:100%; }
 
 /* ===== GALERİ ===== */
 .kids-gallery {
-    padding:70px 0;
-    background:linear-gradient(135deg,var(--yellow-base),#FFFDE7);
+    padding:60px 0;
+    background:var(--white);
+    border-radius:40px; margin:30px 20px 0;
     position:relative; overflow:hidden;
 }
 .gallery-container { position:relative; width:100%; overflow:hidden; margin-top:35px; }
