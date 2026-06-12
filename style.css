@@ -177,14 +177,14 @@ nav ul li a.active::after { width:100%; }
 
 /* ===== GALERİ ===== */
 .kids-gallery {
-    padding:100px 0;
+    padding:70px 0;
     background:linear-gradient(135deg,var(--yellow-base),#FFFDE7);
     position:relative; overflow:hidden;
 }
-.gallery-container { position:relative; width:100%; overflow:hidden; margin-top:50px; }
-.gallery-track { display:flex; gap:25px; animation:scrollGallery 40s linear infinite; width:max-content; }
+.gallery-container { position:relative; width:100%; overflow:hidden; margin-top:35px; }
+.gallery-track { display:flex; gap:20px; animation:scrollGallery 40s linear infinite; width:max-content; }
 .gallery-track:hover { animation-play-state:paused; }
-.gallery-item { width:300px; height:400px; border-radius:25px; overflow:hidden; flex-shrink:0; position:relative; box-shadow:var(--shadow); }
+.gallery-item { width:260px; height:340px; border-radius:22px; overflow:hidden; flex-shrink:0; position:relative; box-shadow:var(--shadow); }
 .gallery-item-empty {
     background:#FBF7EE;
     display:flex; align-items:center; justify-content:center;
@@ -373,6 +373,9 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
     .service-card p { font-size:0.82rem; margin-bottom:12px; }
     .service-features li { font-size:0.8rem; padding:4px 0 4px 20px; }
     .gallery-item { width:250px; height:350px; }
+    .kids-gallery { padding:50px 0; }
+    .gallery-container { margin-top:30px; }
+    .gallery-track { gap:15px; }
     .map-container { height:350px; }
     .contact-section { margin:0 10px; border-radius:25px; padding:40px 0; }
     .contact-section .section-title { margin-bottom:0; }
@@ -419,6 +422,10 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
     .whatsapp-float { bottom:20px; right:18px; }
     .whatsapp-float a { width:52px; height:52px; font-size:26px; }
     .blog-detail-inner { padding:0 5px; }
+    .gallery-item { width:170px; height:230px; border-radius:18px; }
+    .kids-gallery { padding:40px 0; }
+    .gallery-container { margin-top:25px; }
+    .gallery-track { gap:12px; animation-duration:25s; }
 }
 
 /* ===== MOBİL RANDEVU BUTONU (varsayılan gizli, mobilde görünür) ===== */
