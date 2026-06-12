@@ -28,6 +28,30 @@ if (hamburger && nav) {
     });
 }
 
+// ===== BÜYÜTME (LIGHTBOX) PENCERESİ - galeri ve sertifikalar için ortak =====
+const lightbox = document.createElement('div');
+lightbox.className = 'lightbox-overlay';
+lightbox.innerHTML = '<img src="" alt="">';
+document.body.appendChild(lightbox);
+const lightboxImg = lightbox.querySelector('img');
+
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('active');
+});
+
+function openLightbox(src, alt) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt || '';
+    lightbox.classList.add('active');
+}
+
+// ===== SERTİFİKALAR (Hakkımızda sayfası) =====
+document.querySelectorAll('.cert-thumb img').forEach(img => {
+    img.parentElement.addEventListener('click', () => {
+        openLightbox(img.src, img.alt);
+    });
+});
+
 // ===== GALERİ =====
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
@@ -49,17 +73,6 @@ if (galleryTrack) {
         { src: './ofis.webp', alt: 'Bursa Ergoterapi Merkezi ofis' }
     ];
 
-    // Büyütme (lightbox) penceresi
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox-overlay';
-    lightbox.innerHTML = '<img src="" alt="">';
-    document.body.appendChild(lightbox);
-    const lightboxImg = lightbox.querySelector('img');
-
-    lightbox.addEventListener('click', () => {
-        lightbox.classList.remove('active');
-    });
-
     // 2 kopya - sonsuz döngü için
     for (let i = 0; i < 2; i++) {
         galleryImages.forEach(item => {
@@ -67,9 +80,7 @@ if (galleryTrack) {
             div.className = 'gallery-item';
             div.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" width="500" height="667">`;
             div.addEventListener('click', () => {
-                lightboxImg.src = item.src;
-                lightboxImg.alt = item.alt;
-                lightbox.classList.add('active');
+                openLightbox(item.src, item.alt);
             });
             galleryTrack.appendChild(div);
         });
