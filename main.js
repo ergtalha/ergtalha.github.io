@@ -31,17 +31,33 @@ if (hamburger && nav) {
 // ===== GALERİ =====
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
-    // Fotoğraflar ileride yüklenecek - şimdilik logo gösteriyor
-    const placeholderCount = 7;
+    const galleryImages = [
+        { src: 'gallery/ofis-bekleme.webp', alt: 'Bursa Ergoterapi Merkezi ofis ve bekleme alanı', caption: 'Ofis & Bekleme Alanı' },
+        { src: 'gallery/bekleme-salonu.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu', caption: 'Bekleme Salonu' },
+        { src: 'gallery/bekleme-salonu-2.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu', caption: 'Bekleme Salonu' },
+        { src: 'gallery/terapi-odasi.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
+        { src: 'gallery/terapi-odasi-2.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
+        { src: 'gallery/terapi-odasi-isik.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
+        { src: 'gallery/duyu-butunleme.webp', alt: 'Bursa Ergoterapi Merkezi duyu bütünleme odası', caption: 'Duyu Bütünleme Odası' },
+        { src: 'gallery/duyu-butunleme-materyalleri.webp', alt: 'Duyu bütünleme materyalleri', caption: 'Duyu Bütünleme Materyalleri' },
+        { src: 'gallery/hamaklar.webp', alt: 'Duyu bütünleme hamakları', caption: 'Hamaklar' },
+        { src: 'gallery/salincaklar.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
+        { src: 'gallery/salincaklar-2.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
+        { src: 'gallery/salincaklar-3.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
+        { src: 'gallery/top-havuzu-alani.webp', alt: 'Top havuzu alanı', caption: 'Top Havuzu Alanı' },
+        { src: 'gallery/oyuncaklar.webp', alt: 'Oyun ve etkinlik materyalleri', caption: 'Oyun & Etkinlik Köşesi' },
+        { src: 'gallery/ofis.webp', alt: 'Bursa Ergoterapi Merkezi ofis', caption: 'Ofis' }
+    ];
 
     // 2 kopya - sonsuz döngü için
     for (let i = 0; i < 2; i++) {
-        for (let j = 0; j < placeholderCount; j++) {
+        galleryImages.forEach(item => {
             const div = document.createElement('div');
-            div.className = 'gallery-item gallery-item-empty';
-            div.innerHTML = '<img src="logo1.png" alt="Bursa Ergoterapi Merkezi" loading="lazy">';
+            div.className = 'gallery-item';
+            div.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" width="500" height="667">
+                <div class="gallery-overlay"><h4>${item.caption}</h4></div>`;
             galleryTrack.appendChild(div);
-        }
+        });
     }
 
     galleryTrack.addEventListener('mouseenter', () => galleryTrack.style.animationPlayState = 'paused');
