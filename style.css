@@ -176,9 +176,6 @@ nav ul li a.active::after { width:100%; }
 .service-features li::before { content:'✓'; position:absolute; left:0; color:var(--yellow-dark); font-weight:700; }
 
 /* ===== GALERİ ===== */
-/* Fotoğraflar yüklenene kadar bölüm gizli — açmak için aşağıdaki satırı sil */
-.kids-gallery { display:none; }
-
 .kids-gallery {
     padding:100px 0;
     background:linear-gradient(135deg,var(--yellow-base),#FFFDE7);
@@ -207,6 +204,7 @@ nav ul li a.active::after { width:100%; }
     color:var(--white); padding:30px 20px 20px;
     transform:translateY(100%); transition:var(--transition);
 }
+.gallery-overlay h4 { margin:0; font-size:1.05rem; font-weight:600; }
 .gallery-item:hover .gallery-overlay { transform:translateY(0); }
 @keyframes scrollGallery { from{transform:translateX(0)} to{transform:translateX(-50%)} }
 
