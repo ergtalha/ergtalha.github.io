@@ -367,12 +367,17 @@ footer { background:var(--gray-dark); color:var(--white); padding:80px 0 40px; m
     /* Mobil randevu butonu göster */
     .btn-appointment-mobile { display:inline-flex !important; }
     .about-content { grid-template-columns:1fr; gap:40px; }
+    .about-image { display:contents; }
+    .about-photo { order:1; }
+    .about-text { order:2; }
+    .certificates { order:3; }
     .mission-vision { grid-template-columns:1fr; }
     /* Neden biz - 2 sütun tablet */
     .why-grid { grid-template-columns:1fr 1fr; gap:20px; }
 }
 
 @media(max-width:768px) {
+    .why-us, .map-section { border-radius:0; margin:0; }
     .hero-slider { height:70vh; }
     .services-section { margin:-20px 10px 0; padding:50px 15px; }
     /* Hizmet kartları 2 sütun */
