@@ -32,30 +32,45 @@ if (hamburger && nav) {
 const galleryTrack = document.getElementById('gallery-track');
 if (galleryTrack) {
     const galleryImages = [
-        { src: './ofis-bekleme.webp', alt: 'Bursa Ergoterapi Merkezi ofis ve bekleme alanı', caption: 'Ofis & Bekleme Alanı' },
-        { src: './bekleme-salonu.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu', caption: 'Bekleme Salonu' },
-        { src: './bekleme-salonu-2.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu', caption: 'Bekleme Salonu' },
-        { src: './terapi-odasi.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
-        { src: './terapi-odasi-2.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
-        { src: './terapi-odasi-isik.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası', caption: 'Terapi Odası' },
-        { src: './duyu-butunleme.webp', alt: 'Bursa Ergoterapi Merkezi duyu bütünleme odası', caption: 'Duyu Bütünleme Odası' },
-        { src: './duyu-butunleme-materyalleri.webp', alt: 'Duyu bütünleme materyalleri', caption: 'Duyu Bütünleme Materyalleri' },
-        { src: './hamaklar.webp', alt: 'Duyu bütünleme hamakları', caption: 'Hamaklar' },
-        { src: './salincaklar.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
-        { src: './salincaklar-2.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
-        { src: './salincaklar-3.webp', alt: 'Terapi salıncakları', caption: 'Salıncaklar' },
-        { src: './top-havuzu-alani.webp', alt: 'Top havuzu alanı', caption: 'Top Havuzu Alanı' },
-        { src: './oyuncaklar.webp', alt: 'Oyun ve etkinlik materyalleri', caption: 'Oyun & Etkinlik Köşesi' },
-        { src: './ofis.webp', alt: 'Bursa Ergoterapi Merkezi ofis', caption: 'Ofis' }
+        { src: './ofis-bekleme.webp', alt: 'Bursa Ergoterapi Merkezi ofis ve bekleme alanı' },
+        { src: './bekleme-salonu.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu' },
+        { src: './bekleme-salonu-2.webp', alt: 'Bursa Ergoterapi Merkezi bekleme salonu' },
+        { src: './terapi-odasi.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası' },
+        { src: './terapi-odasi-2.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası' },
+        { src: './terapi-odasi-isik.webp', alt: 'Bursa Ergoterapi Merkezi terapi odası' },
+        { src: './duyu-butunleme.webp', alt: 'Bursa Ergoterapi Merkezi duyu bütünleme odası' },
+        { src: './duyu-butunleme-materyalleri.webp', alt: 'Duyu bütünleme materyalleri' },
+        { src: './hamaklar.webp', alt: 'Duyu bütünleme hamakları' },
+        { src: './salincaklar.webp', alt: 'Terapi salıncakları' },
+        { src: './salincaklar-2.webp', alt: 'Terapi salıncakları' },
+        { src: './salincaklar-3.webp', alt: 'Terapi salıncakları' },
+        { src: './top-havuzu-alani.webp', alt: 'Top havuzu alanı' },
+        { src: './oyuncaklar.webp', alt: 'Oyun ve etkinlik materyalleri' },
+        { src: './ofis.webp', alt: 'Bursa Ergoterapi Merkezi ofis' }
     ];
+
+    // Büyütme (lightbox) penceresi
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.innerHTML = '<img src="" alt="">';
+    document.body.appendChild(lightbox);
+    const lightboxImg = lightbox.querySelector('img');
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+    });
 
     // 2 kopya - sonsuz döngü için
     for (let i = 0; i < 2; i++) {
         galleryImages.forEach(item => {
             const div = document.createElement('div');
             div.className = 'gallery-item';
-            div.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" width="500" height="667">
-                <div class="gallery-overlay"><h4>${item.caption}</h4></div>`;
+            div.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy" width="500" height="667">`;
+            div.addEventListener('click', () => {
+                lightboxImg.src = item.src;
+                lightboxImg.alt = item.alt;
+                lightbox.classList.add('active');
+            });
             galleryTrack.appendChild(div);
         });
     }
