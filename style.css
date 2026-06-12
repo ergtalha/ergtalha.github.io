@@ -231,10 +231,8 @@ nav ul li a.active::after { width:100%; }
 .why-card p { font-size:0.95rem; }
 
 /* ===== HARİTA ===== */
-.map-section { padding:40px 0 50px; background:var(--white); border-radius:40px; margin:20px 20px 0; }
-.map-section .section-title { margin-bottom:20px; }
-.map-section .section-title p { margin-top:8px; }
-.map-container { border-radius:25px; overflow:hidden; box-shadow:var(--shadow); height:500px; margin-top:20px; }
+.map-section { padding:80px 0; background:var(--white); border-radius:40px; margin:20px 20px 0; }
+.map-container { border-radius:25px; overflow:hidden; box-shadow:var(--shadow); height:500px; margin-top:40px; }
 .map-container iframe { width:100%; height:100%; border:none; display:block; }
 
 /* ===== İLETİŞİM ===== */
