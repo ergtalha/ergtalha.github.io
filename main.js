@@ -224,3 +224,15 @@ if (document.readyState === 'loading') {
 
     startAuto();
 })();
+
+// Google Haritası: sayfa açılışını yavaşlatmasın diye, kullanıcı haritaya yaklaşınca yüklenir
+(function () {
+    var frames = document.querySelectorAll('iframe[data-src]');
+    if (!frames.length) return;
+    function load(f) { if (!f.getAttribute('src')) f.setAttribute('src', f.getAttribute('data-src')); }
+    if (!('IntersectionObserver' in window)) { frames.forEach(load); return; }
+    var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { load(e.target); io.unobserve(e.target); } });
+    }, { rootMargin: '400px 0px' });
+    frames.forEach(function (f) { io.observe(f); });
+})();

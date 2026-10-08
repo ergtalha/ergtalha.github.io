@@ -223,18 +223,15 @@
         <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon-192.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
     <!-- LCP preload - ilk slider arka planı -->
-    <link rel="preload" as="image" href="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=60">
-    <!-- Font preload -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" as="image" fetchpriority="high" href="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=800&q=60">
+    <link rel="preload" href="fonts/poppins-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/poppins-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
     <!-- Font Awesome - sadece kullanılan ikonlar için woff2 preload -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <link rel="stylesheet" href="style.css?v=8">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
 
@@ -419,8 +416,7 @@
             <p style="margin-top:6px; font-size:0.9rem; color:#777;"><i class="fas fa-subway" aria-hidden="true"></i> Fatih Sultan Mehmet (FSM) metro istasyonuna 500mt mesafedeyiz.</p>
         </div>
         <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.012!2d28.9778164!3d40.2104597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15f86a11d415%3A0xcb14fa766f00eef5!2sErgoterapist%20Talha%20Vizirhan%20%7C%20Bursa%20Ergoterapi!5e0!3m2!1str!2str!4v1774996918218!5m2!1str!2str"
+            <iframe data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3047.012!2d28.9778164!3d40.2104597!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ca15f86a11d415%3A0xcb14fa766f00eef5!2sErgoterapist%20Talha%20Vizirhan%20%7C%20Bursa%20Ergoterapi!5e0!3m2!1str!2str!4v1774996918218!5m2!1str!2str"
                 title="Bursa Ergoterapi Merkezi Konumu"
                 allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
             </iframe>
@@ -539,6 +535,6 @@
     </a>
 </div>
 
-<script src="main.js" defer></script>
+<script src="main.js?v=2" defer></script>
 </body>
 </html>
